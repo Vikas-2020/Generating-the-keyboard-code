@@ -42,6 +42,11 @@ window.addEventListener("keydown", (event) => {
 
     // Store key history
     keyHistory.push(fullKeyCombination || pressedKey);
+    if(comboKeys.length === 2){
+        let a = keyHistory.pop();
+        keyHistory.pop();
+        keyHistory.push(a);
+    }
     if (keyHistory.length > maxHistory) keyHistory.shift(); // Keep only last 10 keys
     console.log("Key History:", keyHistory);
 });
